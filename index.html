@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Earth Vital Signs Forecast</title>
+  <meta name="description" content="Forecasts of six Earth vital signs to October 2028, tested against past data.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <div>
+        <h1>Earth Vital Signs Forecast</h1>
+        <p class="sub">Which of Earth's vital signs will rise by October 2028, and how far the forecasts can be trusted.</p>
+      </div>
+      <div class="top-side">
+        <button id="theme" class="btn" type="button" aria-label="Switch colour theme">Dark theme</button>
+        <p class="stamp" id="stamp"></p>
+      </div>
+    </header>
+
+    <section aria-labelledby="answer-title" class="answer">
+      <h2 id="answer-title" class="eyebrow">Two-year outlook</h2>
+      <p id="answer" class="answer-text">Loading the latest data...</p>
+    </section>
+
+    <section aria-label="All parameters" class="tiles" id="tiles"></section>
+
+    <section class="panel" aria-labelledby="chart-title">
+      <div class="filters">
+        <label>Parameter <select id="param"></select></label>
+        <label>Method <select id="method"></select></label>
+        <div class="field">
+          <span class="field-label" id="range-label">History</span>
+          <div class="seg" role="group" aria-labelledby="range-label" id="range"></div>
+        </div>
+        <label class="grow">Forecast to <output id="horizon-out"></output>
+          <input type="range" id="horizon" min="0" max="24" step="1" value="24">
+        </label>
+      </div>
+      <h2 id="chart-title" class="chart-title"></h2>
+      <p id="chart-note" class="chart-note"></p>
+      <div class="legend" id="legend"></div>
+      <div class="chart-wrap" id="chart-wrap">
+        <svg id="chart" role="img" tabindex="0"></svg>
+        <div id="tip" class="tip" hidden></div>
+      </div>
+      <div class="test-row">
+        <label class="check"><input type="checkbox" id="test-on"> Test the method on the past</label>
+        <label class="grow" id="test-field" hidden>Pretend today is <output id="test-out"></output>
+          <input type="range" id="test" min="0" max="1" step="1" value="0">
+        </label>
+      </div>
+      <p id="test-note" class="chart-note" hidden></p>
+    </section>
+
+    <div class="two">
+      <section class="panel" aria-labelledby="acc-title">
+        <h2 id="acc-title" class="panel-title">Forecast error by method</h2>
+        <p class="chart-note" id="acc-note"></p>
+        <div class="seg" role="group" aria-label="How far ahead" id="acc-range"></div>
+        <div id="bars" class="bars"></div>
+      </section>
+      <section class="panel" aria-labelledby="how-title">
+        <h2 id="how-title" class="panel-title">How the forecast works</h2>
+        <ol class="how">
+          <li>Four methods each forecast the record, using different views of its trend and seasonal cycle.</li>
+          <li>Every 3 months over the past 12 years, later data is hidden and each method forecasts up to 4 years ahead. The forecast is then compared with what happened.</li>
+          <li>Methods with smaller past errors get more weight in the blend. During testing, the weights use only errors known at that date.</li>
+          <li>The shaded band comes from past blend errors, and it should contain about 80% of future values.</li>
+        </ol>
+        <dl class="facts" id="facts"></dl>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="table-title">
+      <div class="panel-head">
+        <h2 id="table-title" class="panel-title">October 2026 and October 2028</h2>
+        <button class="btn" id="csv" type="button">Download forecast CSV</button>
+      </div>
+      <div class="table-scroll"><table id="table"></table></div>
+      <p class="chart-note">"Change" compares the 12 months to October 2026 with the 12 months to October 2028, so the seasonal cycle does not affect it. This is why the change can differ from the gap between the two single months. A change is called clear when it is larger than the usual error of that comparison in past tests.</p>
+    </section>
+
+    <footer class="foot">
+      <h2 class="panel-title">Data sources</h2>
+      <ul id="sources"></ul>
+      <p>Records are published with a delay, so months without data are estimated and marked. Forecasts are statistical. They do not simulate the climate, and events such as a strong El Niño or a large eruption can move values outside the band.</p>
+    </footer>
+  </div>
+  <script src="model.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
