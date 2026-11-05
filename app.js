@@ -68,6 +68,17 @@
       text += ` The change in ${list(unclear.map(part))} is smaller than the usual forecast error, so its direction is less certain.`;
     }
     $("answer").textContent = text;
+
+    const recorded = data.filter((s) => results[s.id].snapshot.observed);
+    const names = list(recorded.map(lowerName));
+    let note = `October 2026 values: ${recorded.length} of ${data.length} recorded so far`;
+    note += recorded.length ? ` (${names}).` : ".";
+    if (recorded.length < data.length) {
+      note += " Agencies publish a month or more late, so the rest are estimates for now. The site checks the sources every Monday. When a record is published, it replaces the estimate and the forecast runs again.";
+    } else {
+      note += " The site checks the sources every Monday and runs the forecast again with each new record.";
+    }
+    $("refresh-note").textContent = note;
   }
 
   function renderTiles() {

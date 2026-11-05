@@ -80,6 +80,8 @@ h1 { font-size: 28px; line-height: 1.2; letter-spacing: -0.01em; }
 .eyebrow { font-size: 12px; font-weight: 600; color: var(--ink-2); margin-bottom: 4px; }
 .answer-text { font-size: 17px; line-height: 1.45; max-width: 90ch; }
 
+.answer-note { color: var(--ink-2); font-size: 13px; margin-top: 8px; max-width: 90ch; }
+
 .tiles { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
 .tile {
   text-align: left; font: inherit; color: inherit; cursor: pointer;
