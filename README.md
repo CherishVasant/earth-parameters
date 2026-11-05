@@ -5,10 +5,10 @@ It uses plain HTML, CSS and JavaScript, so GitHub Pages can host it for free wit
 
 ## Put it online
 
-1. Create a new public repository on GitHub, for example `earth-vital-signs`.
+1. Create a new public repository on GitHub, for example `earth-parameters`.
 2. Upload the **contents** of this `dashboard` folder to the top level of the repository, so `index.html` is not inside a subfolder. Include the hidden `.github` folder and `.nojekyll` file.
 3. In the repository, open **Settings > Pages**. Under **Build and deployment**, choose **Deploy from a branch**, then `main` and `/ (root)`, and save.
-4. After a minute or two, the site is live at `https://YOUR-USERNAME.github.io/earth-vital-signs/`.
+4. After a minute or two, the site is live at `https://YOUR-USERNAME.github.io/earth-parameters/`.
 
 ## Keep the data fresh
 
